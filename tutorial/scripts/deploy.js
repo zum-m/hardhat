@@ -1,5 +1,3 @@
-// scripts/deploy.js
-
 async function main() {
     const [deployer] = await ethers.getSigners();
 
@@ -20,17 +18,3 @@ main()
         console.error(error);
         process.exit(1);
     });
-
-
-// 以下のようにするとどのように変わる？
-const hre = require("hardhat");
-
-async function main() {
-   const deployedContract = await hre.ethers.deployContract("Token");
-   await deployedContract.waitForDeployment();
-}
-
-main().catch((error) => {
-   console.error(error);
-   process.exitCode = 1;
-});
